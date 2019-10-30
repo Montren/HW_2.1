@@ -13,7 +13,6 @@ class SelenideFirstTest {
     @Test
     void shouldBeSuccessTest() throws InterruptedException {
         open("http://localhost:9999");
-
         $("[data-test-id=name] input").setValue("Иванов Иван");
         $("[data-test-id=phone] input").setValue("+79169161616");
         $("[data-test-id=agreement]").click();
@@ -24,7 +23,6 @@ class SelenideFirstTest {
     @Test
     void shouldBeUnsuccessTestWithoutName() throws InterruptedException {
         open("http://localhost:9999");
-
         $("[data-test-id=phone] input").setValue("+79169161616");
         $("[data-test-id=agreement]").click();
         $(By.tagName("button")).click();
@@ -36,7 +34,6 @@ class SelenideFirstTest {
     @Test
     void shouldBeUnsuccessTestWithoutPhone() throws InterruptedException {
         open("http://localhost:9999");
-
         $("[data-test-id=name] input").setValue("Иванов Иван");
         $("[data-test-id=agreement]").click();
         $(By.tagName("button")).click();
@@ -48,19 +45,16 @@ class SelenideFirstTest {
     @Test
     void shouldBeUnsuccessTestWithoutСheckbox() throws InterruptedException {
         open("http://localhost:9999");
-
         $("[data-test-id=name] input").setValue("Иванов Иван");
         $("[data-test-id=phone] input").setValue("+79169161616");
         $(By.tagName("button")).click();
         SelenideElement checkbox = $("[data-test-id=agreement]");
         checkbox.shouldHave(cssClass("input_invalid"));
-
     }
 
     @Test
     void shouldBeUnsuccessTestWithEnglishName() throws InterruptedException {
         open("http://localhost:9999");
-
         $("[data-test-id=name] input").setValue("Ivanov Ivan");
         $("[data-test-id=phone] input").setValue("+79169161616");
         $("[data-test-id=agreement]").click();
